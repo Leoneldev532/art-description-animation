@@ -52,7 +52,6 @@ window.addEventListener("DOMContentLoaded", function () {
           .to(titleSection, { opacity: 1, duration: 0.1, ease: "expo.out" }, "-=1.5")
           .to(chars, { position: "relative", y: 0, x: 0, duration: 1.5, ease: "expo.inOut" }, "<")
           .to(images[index], {
-                delay: 0.2,
                 filter: "grayscale(100%)",
                 duration: 1.2,
                 ease: "expo.inOut",
@@ -61,8 +60,8 @@ window.addEventListener("DOMContentLoaded", function () {
               delay: 0.1,
               filter: "grayscale(0%)",
               clipPath: "inset(0% 0% 0% 0%)",
-              duration: 1,
-              ease: "sine.inOut",
+              duration: 0.8,
+              ease: "expo.inOut",
           }, "-=0.5");
     };
 
@@ -98,7 +97,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 duration: 1.2,
             }, "-=0.5")
             .to(sections[current], {
-                delay: 0.2,
+                delay: 0.5,
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                 transformOrigin: "center",
                 duration:  1,
@@ -111,7 +110,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 duration:  1,
             }, "-=0.5")
             .to(sections[current], {
-                delay: 0.2,
+                delay: 0.5,
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                 transformOrigin: "center",
                 duration:  1,
