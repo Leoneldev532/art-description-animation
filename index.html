@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LANDING PAGE REVEAL</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="flex flex-col bg-gray-200 min-h-screen justify-center items-center  text-white">
+
+  <div class="relative w-full ">
+
+    <div
+      class="relative h-[100vh] w-full flex  justify-center  bg-[url('./image/9.jpg')] items-center  overflow-hidden">
+
+      <h2 class="text-6xl text-center caracter-title block  z-10  max-w-4xl"> Discover powerful analytics and insights
+      </h2>
+
+      <div class="  absolute z-0 h-[400px] w-[400px] ">
+        <img src="./image/10.jpg" class="w-full h-full object-cover" />
+      </div>
+
+    </div>
+
+
+    <div class="relative h-[100vh] w-full bg-gray-100 p-16  all-card overflow-hidden">
+
+      <div class="w-full object-cover flex justify-end items-end ">
+
+        <h2 class="title-section text-black  text-xl  max-w-lg"> </h2>
+
+      </div>
+
+
+      <div class="absolute card top-[5%]  left-[0%] p-4 h-[400px] w-[400px] bg-red-500">
+        <img src="./image/1.jpg" class="w-full h-full object-cover" />
+      </div>
+      <div class="absolute card top-[15%]   p-4 left-[10%] h-[400px] w-[400px] bg-blue-500">
+        <img src="./image/2.jpg" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="absolute card top-[20%]   p-4 left-[20%] h-[400px] w-[400px] bg-green-500">
+        <img src="./image/3.jpg" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="absolute card top-[25%]   p-4 left-[30%] h-[400px] w-[400px] bg-violet-500">
+        <img src="./image/4.jpg" class="w-full h-full object-cover" />
+      </div>
+      <div class="absolute card top-[30%]   p-4 left-[40%] h-[400px] w-[400px] bg-orange-500">
+        <img src="./image/5.jpg" class="w-full h-full object-cover" />
+      </div>
+
+
+
+
+    </div>
+
+
+    <div class="relative h-[100vh] w-full bg-yellow-800 overflow-hidden"></div>
+
+  </div>
+
+  <style>
+    @font-face {
+      font-family: "korosu";
+      src: url("./font/ParisForbel-7OOol.ttf");
+    }
+
+    * {
+      font-family: "korosu";
+      font-weight: bold;
+    }
+
+    .caracter-title div {
+      mix-blend-mode: difference;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.umd.min.js"></script>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
