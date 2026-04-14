@@ -13,15 +13,15 @@
         rel="stylesheet" />
 </head>
 
-<body class="flex relative  bg-yellow-100 flexmin-h-screen justify-center items-center  text-white">
+<body class="flex relative bg-yellow-100 min-h-screen justify-center items-center text-white">
 
-    <div class="relative overflow-hidden w-full flex h-screen">
+    <div class="absolute overflow-hidden  w-full flex h-screen">
 
-        <div class="section absolute  top-0 left-0 w-full h-full">
+        <div class="reveal-slide absolute top-0 left-0 w-full h-full">
             <div
-                class="relative card h-[100vh] p-10 md:p-0 w-full flex  justify-center  bg-black   items-center  overflow-hidden">
-                <img src="./images/a.webp" class="w-full h-full card-img  object-cover bg-black/20   absolute z-0" />
-                <h2 class="text-2xl md:text-4xl leading-[1.2em] text-center title-section block opacity-0    z-10  max-w-4xl">
+                class="relative slide-card h-[100vh] p-10 md:p-0 w-full flex justify-center bg-black items-center overflow-hidden">
+                <img src="./images/a.webp" class="w-full h-full slide-bg-image object-cover bg-black/20 absolute z-0" />
+                <h2 class="text-2xl md:text-4xl leading-[1.2em] text-center slide-title block opacity-0 z-10 max-w-4xl">
                     Fresque baroque
                     Les fresques de plafond baroque créaient l'illusion d'un ciel ouvert grâce à une technique appelée
                     trompe-l'œil. </h2>
@@ -30,10 +30,10 @@
             </div>
         </div>
 
-        <div class="section absolute top-0  left-0 w-full h-full">
-            <div class="relative card h-[100vh] p-10 md:Pp0 w-full flex  justify-center     bg-cover items-center  overflow-hidden">
-                <img src="./images/b.webp" class="w-full card-img  h-full object-cover absolute z-0" />
-                <h2 class="text-2xl md:text-4xl leading-[1.2em] text-center   title-section block opacity-0  z-10  max-w-4xl">
+        <div class="reveal-slide absolute top-0 left-0 w-full h-full">
+            <div class="relative slide-card h-[100vh] p-10 md:p-0 w-full flex justify-center bg-cover items-center overflow-hidden">
+                <img src="./images/b.webp" class="w-full slide-bg-image h-full object-cover absolute z-0" />
+                <h2 class="text-2xl md:text-4xl leading-[1.2em] text-center slide-title block opacity-0 z-10 max-w-4xl">
                     Paysage aquarelle
                     Au 18ème siècle, peindre la nature sauvage était un mouvement artistique appelé le "pittoresque".
                 </h2>
@@ -42,10 +42,10 @@
             </div>
         </div>
 
-        <div class="section  absolute top-0 left-0 w-full h-full">
-            <div class="relative card h-[100vh] p-10 md:p-0 w-full flex  justify-center items-center  overflow-hidden">
-                <img src="./images/c.webp" class="w-full card-img h-full  object-cover absolute z-0" />
-                <h2 class="text-2xl md:text-4xl leading-[1.2em] text-center   title-section block opacity-0  z-10  max-w-4xl">
+        <div class="reveal-slide absolute top-0 left-0 w-full h-full">
+            <div class="relative slide-card h-[100vh] p-10 md:p-0 w-full flex justify-center items-center overflow-hidden">
+                <img src="./images/c.webp" class="w-full slide-bg-image h-full object-cover absolute z-0" />
+                <h2 class="text-2xl md:text-4xl leading-[1.2em] text-center slide-title block opacity-0 z-10 max-w-4xl">
                     Discover powerful
                     Street art
                     Le graffiti est né à New York dans les années 70 avant de devenir un art exposé dans les plus grands
@@ -60,19 +60,15 @@
 
     </div>
 
+    <div class="h-screen w-full flex top-0 left-0  absolute gap-2 p-12 md:p-8 z-[999] justify-end items-end">
 
-
-
-
-    <div class=" h-screen w-full flex top-0 left-0 point-events-none absolute gap-2 p-12 md:p-8 z-[888] justify-end items-end">
-
-        <button class="px-4 py-2 bg-black hover:bg-yellow-500 hover:text-black prev text-white rounded"><svg
+        <button class="px-4 py-2 bg-black hover:bg-yellow-500 hover:text-black nav-prev text-white rounded"><svg
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
             </svg>
         </button>
-        <button class="px-4 py-2 bg-black hover:bg-yellow-500 hover:text-black next text-white rounded"><svg
+        <button class="px-4 py-2 bg-black hover:bg-yellow-500 hover:text-black nav-next text-white rounded"><svg
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -98,7 +94,10 @@
             mix-blend-mode: exclusion;
         }
 
-        .card {
+        .reveal-slide {
+            will-change: contents;
+        }
+        .slide-card {
             clip-path: inset(45% 42% 34% 41%);
             /* inset(21% 19% 16% 17%) */
         }
@@ -113,7 +112,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.umd.min.js"></script>
 
-    <script src="./script2.js"></script>
+    <script src="./revealAnimations.js"></script>
+
+    <script src="./script.js"></script>
 </body>
 
 </html>

@@ -1,35 +1,15 @@
-window.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
 
-    let currentIndex = 0;
-    let prevIndex = 0;
 
-    const sections = document.querySelectorAll(".section");
-    const images = document.querySelectorAll(".card-img");
-    const cards    = document.querySelectorAll(".card");
-    const next     = document.querySelector(".next");
-    const prev     = document.querySelector(".prev");
+window.RevealAnimations = {
 
-    // ─── Setup initial state ───────────────────────────────────────────────
-    gsap.set(sections, {
-        zIndex: (x) => -x + 1,
-        clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
-        transformOrigin: "center",
-    });
-    gsap.set(sections[0], {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    });
-
-    // ─── Helpers ───────────────────────────────────────────────────────────
-    const getNodeData = (index) => {
-        const titleSection = cards[index].querySelector(".title-section");
+    getNodeData: function(cards, index) {
+        const titleSection = cards[index].querySelector(".slide-title");
         const split = new SplitText(titleSection, { type: "chars" });
         return { titleSection, chars: split.chars };
-    };
+    },
 
-    // ─── Card entrance animation ───────────────────────────────────────────
-    const animateCard = (index) => {
-        const { titleSection, chars } = getNodeData(index);
+    animateCard: function(cards, images, index) {
+        const { titleSection, chars } = this.getNodeData(cards, index);
 
         chars.forEach((char) => {
             gsap.set(char, {
@@ -63,11 +43,13 @@ window.addEventListener("DOMContentLoaded", function () {
               duration: 0.8,
               ease: "expo.inOut",
           }, "-=0.5");
-    };
 
-    // ─── Transition between sections ──────────────────────────────────────
-    const transitionAnimation = (prev, current, direction) => {
-        const { chars: charsPrev } = getNodeData(prev);
+        return tl;
+    },
+
+    // Transition between slides
+    transitionAnimation: function(cards, sections, prev, current, direction) {
+        const { chars: charsPrev } = this.getNodeData(cards, prev);
         const goingForward = direction === "forward";
         const tl = gsap.timeline();
 
@@ -100,39 +82,23 @@ window.addEventListener("DOMContentLoaded", function () {
                 delay: 0.5,
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                 transformOrigin: "center",
-                duration:  1,
+                duration: 1,
             }, "-=1.2")
         } else {
             tl.to(others, {
                 delay: 0.2,
                 clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
                 transformOrigin: "center",
-                duration:  1,
+                duration: 1,
             }, "-=0.5")
             .to(sections[current], {
                 delay: 0.5,
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                 transformOrigin: "center",
-                duration:  1,
+                duration: 1,
             }, "-=1");
         }
-    };
 
-    // ─── Navigation ────────────────────────────────────────────────────────
-    next.addEventListener("click", () => {
-        prevIndex    = currentIndex;
-        currentIndex = (currentIndex + 1) % cards.length;
-        transitionAnimation(prevIndex, currentIndex, "forward");
-        animateCard(currentIndex);
-    });
-
-    prev.addEventListener("click", () => {
-        prevIndex    = currentIndex;
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        transitionAnimation(prevIndex, currentIndex, "backward");
-        animateCard(currentIndex);
-    });
-
-    // ─── Init ──────────────────────────────────────────────────────────────
-    animateCard(0);
-});
+        return tl;
+    }
+};
